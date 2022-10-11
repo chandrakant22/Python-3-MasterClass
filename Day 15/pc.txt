@@ -1,0 +1,54 @@
+from tkinter import * 
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="abc123",
+  database="mydb"
+)
+    
+def update():
+    pass
+def delete():
+    pass
+
+t = Tk()  
+
+var_id=StringVar()
+var_name=StringVar()
+var_address=StringVar()
+
+def myinsert(): 
+
+    id=var_id.get() 
+    name=var_name.get()
+    address=var_address.get()
+
+    mycursor = mydb.cursor()
+
+    sql = "INSERT INTO student (id, full_name, address) VALUES (%s, %s, %s)"
+    val = (id,name,address)
+
+    mycursor.execute(sql, val)
+    mydb.commit()
+    print("hello ",id,name,address)
+
+
+from tkinter import * 
+t = Tk()
+
+id = Label(t,text = "ID").grid(row = 0, column = 0)  
+e2 = Entry(t,textvariable =var_id).grid(row = 0, column = 1) 
+name = Label(t,text = "Name").grid(row = 1, column = 0)  
+e1 = Entry(t,textvariable =var_name).grid(row = 1, column = 1)  
+password = Label(t,text = "Address").grid(row = 2, column = 0)  
+e2 = Entry(t,textvariable =var_address).grid(row = 2, column = 1)  
+
+Button(t, text = "insert", command=myinsert).grid(row = 4, column = 0)  
+update = Button(t, text = "update",command="update").grid(row = 4, column = 1)  
+delete = Button(t, text = "delete", command="delete").grid(row = 4, column = 2)  
+
+
+t.mainloop()
+print(mydb)
