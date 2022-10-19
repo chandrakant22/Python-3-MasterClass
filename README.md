@@ -1,4 +1,4 @@
 # Python-3-MasterClass
 Learn from zero to hero with chandrakant sir
 <a href="https://whimsical.com/python3-masterclass-syllabus-76RLyLARQDba85tTBXtiiw">Link</a>
-![Screenshoot](screenshoot/ss.png)
+![Screenshoot](ss.png)
